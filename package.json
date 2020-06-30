@@ -2,11 +2,11 @@
 	"type": "module",
 	"types": "dist",
 	"license": "MIT",
-	"version": "1.0.3",
-	"main": "index.ts",
+	"version": "1.0.4",
 	"keywords": ["bem"],
 	"description": "bem",
 	"name": "@oly_op/bem",
+	"main": "dist/index.js",
 	"bugs": "https://github.com/olyop/bem/issues",
 	"homepage": "https://github.com/olyop/bem/blob/master/README.md",
 	"author": {
