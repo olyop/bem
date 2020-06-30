@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"target": "ESNEXT",
+		"module": "CommonJS",
+		"removeComments": true,
+		"noUnusedLocals": true,
+		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true
+	}
+}
