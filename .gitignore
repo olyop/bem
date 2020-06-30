@@ -1,6 +1,1 @@
-# folders
-dist/
 node_modules/
-
-# files
-.env
