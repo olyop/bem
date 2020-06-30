@@ -2,7 +2,7 @@
 	"name": "@oly_op/bem",
 	"type": "module",
 	"license": "MIT",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"main": "index.ts",
 	"keywords": [
 		"bem"
@@ -19,9 +19,11 @@
 		"url": "https://github.com/olyop/bem.git"
 	},
 	"files": [
-		"index.ts"
+		"dist"
 	],
 	"scripts": {
+		"prepare": "npx tsc",
+		"postpublish": "npm run push",
 		"sync": "git checkout . && git remote update && git pull",
 		"push": "clear && git status && git add -A && git commit -m \"Update\" && git push -u origin master"
 	},
@@ -37,7 +39,7 @@
 		"typescript": "^3.9.5"
 	},
 	"dependencies": {
-		"@oly_op/pipe": "^1.0.0",
+		"@oly_op/pipe": "^1.0.4",
 		"lodash": "^4.17.15"
 	}
 }
