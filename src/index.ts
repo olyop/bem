@@ -6,8 +6,10 @@ export interface ClassType {
 	className: string,
 }
 
-export type BemInputType =
+export type BemInput =
 	ClassType | string | null | undefined
+
+export type BemInputType = BemInput
 
 const isUpperCase = (x: string): boolean =>
 	x === x.toUpperCase()
@@ -15,7 +17,7 @@ const isUpperCase = (x: string): boolean =>
 const createClassType = (className: string, ignore = false): ClassType =>
 	({ ignore, className })
 
-const normalizeInput = (classNames: BemInputType[]): ClassType[] =>
+const normalizeInput = (classNames: BemInput[]): ClassType[] =>
 	classNames
 		.map((className) => {
 			if (isNull(className) || isUndefined(className)) {
@@ -52,5 +54,5 @@ const joinToString = (classNames: string[]) =>
 
 export const createBem =
 	(componentName: string) =>
-		(...classNames: BemInputType[]): string =>
+		(...classNames: BemInput[]): string =>
 			pipe(normalizeInput, mapBemValues(componentName), joinToString)(classNames)
