@@ -1,8 +1,10 @@
 {
 	"types": "dist",
 	"license": "MIT",
-	"version": "2.0.2",
-	"keywords": ["bem"],
+	"version": "2.2.0",
+	"keywords": [
+		"bem"
+	],
 	"description": "bem",
 	"name": "@oly_op/bem",
 	"main": "dist/index.js",
@@ -38,7 +40,7 @@
 		"typescript": "^3.9.6"
 	},
 	"dependencies": {
-		"@oly_op/pipe": "^2.0.1",
+		"@oly_op/pipe": "^2.0.2",
 		"lodash": "^4.17.15"
 	}
 }

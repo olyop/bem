@@ -1,5 +1,8 @@
+import isNull from "lodash/isNull";
 import { pipe } from "@oly_op/pipe";
-import { isNull, isEmpty, isString, isUndefined } from "lodash";
+import isEmpty from "lodash/isEmpty";
+import isString from "lodash/isString";
+import isUndefined from "lodash/isUndefined";
 const isUpperCase = (x) => x === x.toUpperCase();
 const createClassType = (className, ignore = false) => ({ ignore, className });
 const normalizeInput = (classNames) => classNames

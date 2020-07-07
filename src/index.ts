@@ -1,5 +1,8 @@
+import isNull from "lodash/isNull"
 import { pipe } from "@oly_op/pipe"
-import { isNull, isEmpty, isString, isUndefined } from "lodash"
+import isEmpty from "lodash/isEmpty"
+import isString from "lodash/isString"
+import isUndefined from "lodash/isUndefined"
 
 export interface ClassType {
 	ignore: boolean,
