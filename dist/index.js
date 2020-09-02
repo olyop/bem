@@ -1,12 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createBem = void 0;
-const pipe_1 = require("@oly_op/pipe");
-const isEmpty_1 = __importDefault(require("lodash/isEmpty"));
 const isNull = (val) => val === null;
+const isEmpty = (val) => val.length === 0;
 const isString = (val) => typeof val === "string";
 const isUndefined = (val) => val === undefined;
 const isUpperCase = (x) => x === x.toUpperCase();
@@ -17,7 +10,7 @@ const normalizeInput = (classNames) => classNames
         return createClassType("", true);
     }
     else if (isString(className)) {
-        if (isEmpty_1.default(className)) {
+        if (isEmpty(className)) {
             return createClassType(className);
         }
         else if (isUpperCase(className.charAt(0))) {
@@ -36,7 +29,7 @@ const mapBemValues = (componentName) => (classNames) => classNames.map(({ ignore
     if (ignore) {
         return className;
     }
-    else if (isEmpty_1.default(className)) {
+    else if (isEmpty(className)) {
         return componentName;
     }
     else {
@@ -44,4 +37,10 @@ const mapBemValues = (componentName) => (classNames) => classNames.map(({ ignore
     }
 });
 const joinToString = (classNames) => classNames.join(" ");
-exports.createBem = (componentName) => (...classNames) => pipe_1.pipe(normalizeInput, mapBemValues(componentName), joinToString)(classNames);
+export const createBem = (componentName) => (...classNames) => {
+    const input = normalizeInput(classNames);
+    const mappedInput = mapBemValues(componentName)(input);
+    const bem = joinToString(mappedInput);
+    return bem;
+};
+//# sourceMappingURL=index.js.map

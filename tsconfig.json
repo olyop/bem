@@ -2,24 +2,19 @@
 	"compilerOptions": {
 		"strict": true,
 		"outDir": "dist",
-		"rootDir": "src",
-		"target": "ESNEXT",
-		"declaration": true,
-		"module": "CommonJS",
+		"sourceMap": true,
+		"target": "ES2019",
+		"noImplicitAny": true,
 		"removeComments": true,
 		"noUnusedLocals": true,
 		"esModuleInterop": true,
-		"moduleResolution": "node",
+		"strictNullChecks": true,
+		"noImplicitReturns": true,
+		"moduleResolution": "Node",
 		"noUnusedParameters": true,
+		"strictFunctionTypes": true,
 		"noFallthroughCasesInSwitch": true,
-		"allowSyntheticDefaultImports": true,
+		"strictPropertyInitialization": true,
 		"forceConsistentCasingInFileNames": true
-	},
-	"include": [
-		"src"
-	],
-	"exclude": [
-		"dist",
-		"node_modules"
-	]
+	}
 }

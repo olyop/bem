@@ -1,14 +1,17 @@
-import { pipe } from "@oly_op/pipe"
-import isEmpty from "lodash/isEmpty"
-
-const isNull = (val: any): val is null =>
+const isNull = (val: unknown): val is null =>
 	val === null
 
-const isString = (val: any): val is string =>
+const isEmpty = (val: string) =>
+	val.length === 0
+
+const isString = (val: unknown): val is string =>
 	typeof val === "string"
 
-const isUndefined = (val: any): val is undefined =>
+const isUndefined = (val: unknown): val is undefined =>
 	val === undefined
+
+const isUpperCase = (x: string): boolean =>
+	x === x.toUpperCase()
 
 export interface ClassType {
 	ignore: boolean,
@@ -19,9 +22,6 @@ export type BemInput =
 	ClassType | string | null | undefined
 
 export type BemInputType = BemInput
-
-const isUpperCase = (x: string): boolean =>
-	x === x.toUpperCase()
 
 const createClassType = (className: string, ignore = false): ClassType =>
 	({ ignore, className })
@@ -63,5 +63,9 @@ const joinToString = (classNames: string[]) =>
 
 export const createBem =
 	(componentName: string) =>
-		(...classNames: BemInput[]): string =>
-			pipe(normalizeInput, mapBemValues(componentName), joinToString)(classNames)
+		(...classNames: BemInput[]): string => {
+			const input = normalizeInput(classNames)
+			const mappedInput = mapBemValues(componentName)(input)
+			const bem = joinToString(mappedInput)
+			return bem
+		}
