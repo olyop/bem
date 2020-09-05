@@ -43,4 +43,3 @@ export const createBem = (componentName) => (...classNames) => {
     const bem = joinToString(mappedInput);
     return bem;
 };
-//# sourceMappingURL=index.js.map

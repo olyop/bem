@@ -2,8 +2,8 @@
 	"compilerOptions": {
 		"strict": true,
 		"outDir": "dist",
-		"sourceMap": true,
 		"target": "ES2019",
+		"declaration": true,
 		"noImplicitAny": true,
 		"removeComments": true,
 		"noUnusedLocals": true,
