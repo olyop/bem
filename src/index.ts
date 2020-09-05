@@ -22,7 +22,7 @@ export type BemInput =
 	ClassType | string | null | undefined
 
 export interface BemPropTypes {
-	className: BemInput,
+	className?: BemInput,
 }
 
 const createClassType = (className: string, ignore = false): ClassType =>

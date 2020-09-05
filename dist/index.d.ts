@@ -4,6 +4,6 @@ export interface ClassType {
 }
 export declare type BemInput = ClassType | string | null | undefined;
 export interface BemPropTypes {
-    className: BemInput;
+    className?: BemInput;
 }
 export declare const createBem: (componentName: string) => (...classNames: BemInput[]) => string;
