@@ -21,7 +21,9 @@ export interface ClassType {
 export type BemInput =
 	ClassType | string | null | undefined
 
-export type BemInputType = BemInput
+export interface BemPropTypes {
+	className: BemInput,
+}
 
 const createClassType = (className: string, ignore = false): ClassType =>
 	({ ignore, className })
