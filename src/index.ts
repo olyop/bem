@@ -48,7 +48,7 @@ const normalizeInput = (classNames: BemInput[]): ClassType[] =>
 		})
 
 const filterRemove = (classNames: ClassType[]) =>
-	classNames.filter(({ remove }) => remove)
+	classNames.filter(({ remove }) => !remove)
 
 const mapBemValues = (componentName: string) => (classNames: ClassType[]) =>
 	classNames.map(

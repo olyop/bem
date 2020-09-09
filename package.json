@@ -1,7 +1,7 @@
 {
 	"types": "dist",
 	"license": "MIT",
-	"version": "2.9.0",
+	"version": "2.10.0",
 	"keywords": [
 		"bem"
 	],
@@ -22,7 +22,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build:esm": "npx ",
+		"prepublishOnly": "npx tsc",
 		"postpublish": "clear && git status && git add -A && git commit -m \"Update\" && git push -u origin master"
 	},
 	"devDependencies": {

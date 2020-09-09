@@ -24,7 +24,7 @@ const normalizeInput = (classNames) => classNames
         return className;
     }
 });
-const filterRemove = (classNames) => classNames.filter(({ remove }) => remove);
+const filterRemove = (classNames) => classNames.filter(({ remove }) => !remove);
 const mapBemValues = (componentName) => (classNames) => classNames.map(({ ignore, className }) => {
     if (ignore) {
         return className;
