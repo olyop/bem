@@ -1,11 +1,11 @@
 const isNull = (val: unknown): val is null =>
 	val === null
 
-const isEmpty = (val: string) =>
-	val.length === 0
-
 const isString = (val: unknown): val is string =>
 	typeof val === "string"
+
+const isBoolean = (val: unknown): val is boolean =>
+	typeof val === "boolean"
 
 const isUndefined = (val: unknown): val is undefined =>
 	val === undefined
@@ -13,39 +13,42 @@ const isUndefined = (val: unknown): val is undefined =>
 const isUpperCase = (x: string): boolean =>
 	x === x.toUpperCase()
 
+const isEmpty = (val: string | unknown[]) =>
+	val.length === 0
+
 export interface ClassType {
-	ignore: boolean,
+	remove?: boolean,
+	ignore?: boolean,
 	className: string,
 }
 
 export type BemInput =
-	ClassType | string | null | undefined
+	ClassType | string | boolean | null | undefined
 
 export interface BemPropTypes {
 	className?: BemInput,
 }
 
-const createClassType = (className: string, ignore = false): ClassType =>
-	({ ignore, className })
-
 const normalizeInput = (classNames: BemInput[]): ClassType[] =>
 	classNames
-		.map((className) => {
-			if (isNull(className) || isUndefined(className)) {
-				return createClassType("", true)
+		.map(className => {
+			if (isBoolean(className) || isNull(className) || isUndefined(className)) {
+				return { className: "", remove: true }
 			} else if (isString(className)) {
 				if (isEmpty(className)) {
-					return createClassType(className)
+					return { className }
 				} else if (isUpperCase(className.charAt(0))) {
-					return createClassType(className, true)
+					return { className, ignore: true }
 				} else {
-					return createClassType(className)
+					return { className }
 				}
 			} else {
 				return className
 			}
 		})
-		.filter((className) => className !== null)
+
+const filterRemove = (classNames: ClassType[]) =>
+	classNames.filter(({ remove }) => remove)
 
 const mapBemValues = (componentName: string) => (classNames: ClassType[]) =>
 	classNames.map(
@@ -66,7 +69,7 @@ const joinToString = (classNames: string[]) =>
 export const createBem =
 	(componentName: string) =>
 		(...classNames: BemInput[]): string => {
-			const input = normalizeInput(classNames)
+			const input = filterRemove(normalizeInput(classNames))
 			const mappedInput = mapBemValues(componentName)(input)
 			const bem = joinToString(mappedInput)
 			return bem

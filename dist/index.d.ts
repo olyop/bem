@@ -1,8 +1,9 @@
 export interface ClassType {
-    ignore: boolean;
+    remove?: boolean;
+    ignore?: boolean;
     className: string;
 }
-export declare type BemInput = ClassType | string | null | undefined;
+export declare type BemInput = ClassType | string | boolean | null | undefined;
 export interface BemPropTypes {
     className?: BemInput;
 }
