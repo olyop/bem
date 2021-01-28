@@ -1,3 +1,5 @@
+import pipe from "@oly_op/pipe"
+
 const isNull =
 	(val: unknown): val is null =>
 		val === null
@@ -66,12 +68,13 @@ const joinToString =
 
 export const createBem =
 	(componentName: string) =>
-		(...classNames: BemInput[]): string => {
-			const input = filterRemove(normalizeInput(classNames))
-			const mappedInput = mapBemValues(componentName)(input)
-			const bem = joinToString(mappedInput)
-			return bem
-		}
+		(...classNames: BemInput[]): string =>
+			pipe(
+				normalizeInput,
+				filterRemove,
+				mapBemValues(componentName),
+				joinToString,
+			)(classNames)
 
 export interface ClassType {
 	remove?: boolean,
