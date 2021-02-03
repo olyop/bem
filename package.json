@@ -17,12 +17,12 @@
 	},
 	"scripts": {
 		"prepublishOnly": "npx tsc",
+		"postpublish": "npm run push",
 		"sync": "git checkout . && git remote update && git pull",
-		"push": "clear && git status && git add -A && git commit -m \"Update\" && git push -u origin master",
-		"postpublish": "clear && git status && git add -A && git commit -m \"Update\" && git push -u origin master"
+		"push": "clear && git status && git add -A && git commit -m \"Update\" && git push"
 	},
 	"devDependencies": {
-		"@oly_op/eslint-config": "^1.0.0",
+		"@oly_op/eslint-config": "^2.0.0",
 		"@typescript-eslint/eslint-plugin": "^4.14.1",
 		"eslint": "^7.8.1",
 		"eslint-plugin-import": "^2.22.0",
