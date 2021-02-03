@@ -2,9 +2,6 @@
 	"types": "dist",
 	"license": "MIT",
 	"version": "2.11.0",
-	"keywords": [
-		"bem"
-	],
 	"description": "bem",
 	"name": "@oly_op/bem",
 	"main": "dist/index.js",
@@ -18,9 +15,6 @@
 		"type": "git",
 		"url": "https://github.com/olyop/bem.git"
 	},
-	"files": [
-		"dist"
-	],
 	"scripts": {
 		"prepublishOnly": "npx tsc",
 		"sync": "git checkout . && git remote update && git pull",
@@ -30,9 +24,7 @@
 	"devDependencies": {
 		"@oly_op/eslint-config": "^1.0.0",
 		"@typescript-eslint/eslint-plugin": "^4.14.1",
-		"@typescript-eslint/parser": "^4.14.1",
 		"eslint": "^7.8.1",
-		"eslint-config-airbnb-typescript": "^12.0.0",
 		"eslint-plugin-import": "^2.22.0",
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^4.2.1",

@@ -14,5 +14,11 @@
 		"noFallthroughCasesInSwitch": true,
 		"strictPropertyInitialization": true,
 		"forceConsistentCasingInFileNames": true
-	}
+	},
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"dist"
+	]
 }
