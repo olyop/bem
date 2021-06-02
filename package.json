@@ -1,10 +1,10 @@
 {
 	"types": "build",
 	"license": "MIT",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"description": "bem",
 	"name": "@oly_op/bem",
-	"main": "dist/index.js",
+	"main": "build/index.js",
 	"bugs": "https://github.com/olyop/bem/issues",
 	"homepage": "https://github.com/olyop/bem/blob/master/README.md",
 	"author": {

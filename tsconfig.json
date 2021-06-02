@@ -1,6 +1,9 @@
 {
+	"compilerOptions": {
+		"outDir": "build",
+		"declaration": true
+	},
 	"include": ["src"],
 	"exclude": ["build"],
-	"compilerOptions": { "outDir": "build" },
 	"extends": "@oly_op/tsconfig/tsconfig.json"
 }
