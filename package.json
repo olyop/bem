@@ -1,5 +1,5 @@
 {
-	"types": "dist",
+	"types": "build",
 	"license": "MIT",
 	"version": "3.0.0",
 	"description": "bem",
@@ -16,21 +16,23 @@
 		"url": "https://github.com/olyop/bem.git"
 	},
 	"scripts": {
-		"prepublishOnly": "npx tsc",
+		"build": "npx tsc",
 		"postpublish": "npm run push",
+		"prepublishOnly": "npm run build",
 		"sync": "git checkout . && git remote update && git pull",
-		"push": "clear && git status && git add -A && git commit -m \"Update\" && git push"
+		"push": "git commit -a -m \"Update\" && git push -u origin master"
 	},
 	"devDependencies": {
-		"@oly_op/eslint-config": "^2.0.0",
-		"@typescript-eslint/eslint-plugin": "^4.14.1",
-		"eslint": "^7.8.1",
-		"eslint-plugin-import": "^2.22.0",
-		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-promise": "^4.2.1",
-		"typescript": "^4.0.2"
+		"@oly_op/eslint-config": "3.7.9",
+		"@oly_op/tsconfig": "1.0.1",
+		"@typescript-eslint/eslint-plugin": "4.26.0",
+		"eslint": "7.27.0",
+		"eslint-plugin-import": "2.23.4",
+		"eslint-plugin-node": "11.1.0",
+		"eslint-plugin-promise": "5.1.0",
+		"typescript": "4.3.2"
 	},
 	"dependencies": {
-		"@oly_op/pipe": "^3.1.0"
+		"@oly_op/pipe": "3.1.0"
 	}
 }

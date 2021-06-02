@@ -1,24 +1,6 @@
 {
-	"compilerOptions": {
-		"strict": true,
-		"outDir": "dist",
-		"target": "ES2019",
-		"declaration": true,
-		"noImplicitAny": true,
-		"removeComments": true,
-		"esModuleInterop": true,
-		"strictNullChecks": true,
-		"noImplicitReturns": true,
-		"moduleResolution": "Node",
-		"strictFunctionTypes": true,
-		"noFallthroughCasesInSwitch": true,
-		"strictPropertyInitialization": true,
-		"forceConsistentCasingInFileNames": true
-	},
-	"include": [
-		"src"
-	],
-	"exclude": [
-		"dist"
-	]
+	"include": ["src"],
+	"exclude": ["build"],
+	"compilerOptions": { "outDir": "build" },
+	"extends": "@oly_op/tsconfig/tsconfig.json"
 }
