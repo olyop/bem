@@ -15,6 +15,9 @@
 		"type": "git",
 		"url": "https://github.com/olyop/bem.git"
 	},
+	"files": [
+		"build"
+	],
 	"scripts": {
 		"build": "npx tsc",
 		"postpublish": "npm run push",
