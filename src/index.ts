@@ -33,10 +33,10 @@ const normalizeInput =
 				} else if (isString(className)) {
 					if (isEmpty(className)) {
 						return { className }
-					} else if (!isUpperCase(className.charAt(0))) {
-						return { className, ignore: true }
-					} else {
+					} else if (isUpperCase(className.charAt(0))) {
 						return { className }
+					} else {
+						return { className, ignore: true }
 					}
 				} else {
 					return className
