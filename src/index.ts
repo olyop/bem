@@ -25,7 +25,7 @@ const isEmpty =
 		val.length === 0
 
 const normalizeInput =
-	(classNames: BemInput[]): ClassType[] =>
+	(classNames: BEMInput[]): BEMClassType[] =>
 		classNames
 			.map(className => {
 				if (isBoolean(className) || isNull(className) || isUndefined(className)) {
@@ -44,12 +44,12 @@ const normalizeInput =
 			})
 
 const filterRemove =
-	(classNames: ClassType[]) =>
+	(classNames: BEMClassType[]) =>
 		classNames.filter(({ remove }) => !remove)
 
-const mapBemValues =
+const mapBEMValues =
 	(componentName: string) =>
-		(classNames: ClassType[]) =>
+		(classNames: BEMClassType[]) =>
 			classNames.map(
 				({ ignore, className }) => {
 					if (ignore) {
@@ -66,25 +66,25 @@ const joinToString =
 	(classNames: string[]) =>
 		classNames.join(" ")
 
-export const createBem =
+export const createBEM =
 	(componentName: string) =>
-		(...classNames: BemInput[]): string =>
+		(...classNames: BEMInput[]): string =>
 			pipe(
 				normalizeInput,
 				filterRemove,
-				mapBemValues(componentName),
+				mapBEMValues(componentName),
 				joinToString,
 			)(classNames)
 
-export interface ClassType {
+export interface BEMClassType {
 	remove?: boolean,
 	ignore?: boolean,
 	className: string,
 }
 
-export type BemInput =
-	ClassType | string | boolean | null | undefined
+export type BEMInput =
+	BEMClassType | string | boolean | null | undefined
 
-export interface BemPropTypes {
-	className?: BemInput,
+export interface BEMPropTypes {
+	className?: BEMInput,
 }
