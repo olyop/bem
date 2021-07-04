@@ -56,6 +56,8 @@ const mapBEMValues =
 				({ ignore, className }) => {
 					if (ignore) {
 						return className
+					} else if (isEmpty(componentName)) {
+						return className
 					} else if (isEmpty(className)) {
 						return componentName
 					} else {
