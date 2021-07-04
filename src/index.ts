@@ -16,9 +16,9 @@ const isUndefined =
 	(val: unknown): val is undefined =>
 		val === undefined
 
-const isFirstCharUpperCase =
+const isUpperCase =
 	(x: string): boolean =>
-		x === x.charAt(0).toUpperCase()
+		x === x.toUpperCase()
 
 const isEmpty =
 	(val: string | unknown[]) =>
@@ -34,7 +34,7 @@ const normalizeInput =
 					} else if (isString(className)) {
 						if (isEmpty(className)) {
 							return { className }
-						} else if (isFirstCharUpperCase(className)) {
+						} else if (isUpperCase(className.charAt(0))) {
 							return { className, ignore: true }
 						} else {
 							return { className }
@@ -67,8 +67,11 @@ const mapBEMValues =
 			)
 
 const joinToString =
-	(classNames: string[]) =>
-		classNames.join(" ")
+	(classNames: string[]) => (
+		isEmpty(classNames) ?
+			undefined :
+			classNames.join(" ")
+	)
 
 export const createBEM =
 	(componentName: string) =>
