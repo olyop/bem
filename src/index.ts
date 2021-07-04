@@ -27,21 +27,23 @@ const isEmpty =
 const normalizeInput =
 	(classNames: BEMInput[]): BEMClassType[] =>
 		classNames
-			.map(className => {
-				if (isBoolean(className) || isNull(className) || isUndefined(className)) {
-					return { className: "", remove: true }
-				} else if (isString(className)) {
-					if (isEmpty(className)) {
-						return { className }
-					} else if (isUpperCase(className.charAt(0))) {
-						return { className, ignore: true }
+			.map(
+				className => {
+					if (isBoolean(className) || isNull(className) || isUndefined(className)) {
+						return { className: "", remove: true }
+					} else if (isString(className)) {
+						if (isEmpty(className)) {
+							return { className }
+						} else if (isUpperCase(className.charAt(0))) {
+							return { className, ignore: true }
+						} else {
+							return { className }
+						}
 					} else {
-						return { className }
+						return className
 					}
-				} else {
-					return className
-				}
-			})
+				},
+			)
 
 const filterRemove =
 	(classNames: BEMClassType[]) =>
