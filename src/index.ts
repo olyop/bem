@@ -65,12 +65,15 @@ const mapBEMValues =
 			)
 
 const joinToString =
-	(classNames: string[]) =>
-		classNames.join(" ")
+	(classNames: string[]) => (
+		isEmpty(classNames) ?
+			undefined :
+			classNames.join(" ")
+	)
 
 export const createBEM =
 	(componentName: string) =>
-		(...classNames: BEMInput[]): string =>
+		(...classNames: BEMInput[]) =>
 			pipe(
 				normalizeInput,
 				filterRemove,
