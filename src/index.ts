@@ -16,9 +16,9 @@ const isUndefined =
 	(val: unknown): val is undefined =>
 		val === undefined
 
-const isUpperCase =
+const isFirstCharUpperCase =
 	(x: string): boolean =>
-		x === x.toUpperCase()
+		x === x.charAt(0).toUpperCase()
 
 const isEmpty =
 	(val: string | unknown[]) =>
@@ -34,7 +34,7 @@ const normalizeInput =
 					} else if (isString(className)) {
 						if (isEmpty(className)) {
 							return { className }
-						} else if (isUpperCase(className.charAt(0))) {
+						} else if (isFirstCharUpperCase(className)) {
 							return { className, ignore: true }
 						} else {
 							return { className }
