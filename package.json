@@ -26,14 +26,14 @@
 		"push": "git commit -a -m \"Update\" && git push -u origin master"
 	},
 	"devDependencies": {
-		"@oly_op/eslint-config": "3.7.14",
-		"@oly_op/tsconfig": "1.0.3",
-		"@typescript-eslint/eslint-plugin": "4.30.0",
+		"@oly_op/eslint-config": "5.0.4",
+		"@oly_op/tsconfig": "1.0.5",
+		"@typescript-eslint/eslint-plugin": "5.1.0",
 		"eslint": "7.32.0",
-		"eslint-plugin-import": "2.24.2",
+		"eslint-plugin-import": "2.25.2",
 		"eslint-plugin-node": "11.1.0",
-		"eslint-plugin-promise": "5.1.0",
-		"typescript": "4.4.2"
+		"eslint-plugin-promise": "5.1.1",
+		"typescript": "4.4.4"
 	},
 	"dependencies": {
 		"@oly_op/pipe": "3.1.0"
