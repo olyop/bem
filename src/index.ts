@@ -90,8 +90,4 @@ export interface BEMClassType {
 }
 
 export type BEMInput =
-	BEMClassType | string | boolean | null | undefined
-
-export interface BEMPropTypes {
-	className?: BEMInput,
-}
+	BEMClassType | string | boolean | undefined | null
