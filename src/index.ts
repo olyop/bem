@@ -1,5 +1,3 @@
-import pipe from "@oly_op/pipe"
-
 const isNull =
 	(val: unknown): val is null =>
 		val === null
@@ -50,21 +48,20 @@ const filterRemove =
 		classNames.filter(({ remove }) => !remove)
 
 const mapBEMValues =
-	(componentName: string) =>
-		(classNames: BEMClassType[]) =>
-			classNames.map(
-				({ ignore, className }) => {
-					if (ignore) {
-						return className
-					} else if (isEmpty(componentName)) {
-						return className
-					} else if (isEmpty(className)) {
-						return componentName
-					} else {
-						return `${componentName}__${className}`
-					}
-				},
-			)
+	(classNames: BEMClassType[], componentName: string) =>
+		classNames.map(
+			({ ignore, className }) => {
+				if (ignore) {
+					return className
+				} else if (isEmpty(componentName)) {
+					return className
+				} else if (isEmpty(className)) {
+					return componentName
+				} else {
+					return `${componentName}__${className}`
+				}
+			},
+		)
 
 const joinToString =
 	(classNames: string[]) => (
@@ -76,12 +73,14 @@ const joinToString =
 export const createBEM =
 	(componentName: string) =>
 		(...classNames: BEMInput[]) =>
-			pipe(
-				normalizeInput,
-				filterRemove,
-				mapBEMValues(componentName),
-				joinToString,
-			)(classNames)
+			joinToString(
+				mapBEMValues(
+					filterRemove(
+						normalizeInput(classNames),
+					),
+					componentName,
+				),
+			)
 
 export interface BEMClassType {
 	remove?: boolean,
