@@ -4,10 +4,6 @@
 		"outDir": "build",
 		"declaration": true
 	},
-	"include": [
-		"src",
-	],
-	"exclude": [
-		"build",
-	]
+	"include": ["src"],
+	"exclude": ["build"]
 }
